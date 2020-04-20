@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mini.mapper.ProductMapper">
+
+
+	<insert id="insert" parameterType="product">
+		INSERT INTO PRODUCT_TB VALUES
+		(PRODUCT_TB_SEQ.NEXTVAL,#{cate},#{product_nm},#{product_price},#{product_st},#{product_picture1},#{product_picture2},#{product_picture3},#{farm_license_no},#{farm_nm},#{farm_ceo},#{farm_addr},#{farm_phone})
+	</insert>
+	<update id="update" parameterType="product">
+		UPDATE T_PRODUCT SET
+		NAME=#{name},PRICE=#{price},IMGNAME=#{imgname} WHERE ID=#{id}
+	</update>
+	<delete id="delete" parameterType="INTEGER">
+		DELETE FROM T_PRODUCT WHERE ID=#{obj}
+	</delete>
+
+	<select id="select" parameterType="Integer" resultType="product">
+		SELECT *
+		FROM T_PRODUCT WHERE ID=#{obj}
+	</select>
+	<select id="selectall" resultType="product">
+		SELECT * FROM T_PRODUCT
+	</select>
+
+</mapper>
+
+
+
+
+
+
